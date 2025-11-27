@@ -71,6 +71,6 @@ For production, the intigration would look similar to the following.
 ![Chart reference example](assets/EX5.png)
 ### Article reference example
 ![Article reference example](assets/EX6.png)
-## 📄 License
+## License
 Proprietary - Prepared for RecessionAlert.
 
