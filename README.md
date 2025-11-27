@@ -1,8 +1,9 @@
 # RecessionAlert AI Chat Widget (Prototype)
 
-A drop-in, vanilla JavaScript AI chat interface designed specifically for the RecessionAlert research portal. This prototype demonstrates the UI/UX, integration strategy, and interactive capabilities of the proposed "AI Analyst" feature.
+A prototype of a drop-in, vanilla JavaScript AI chat interface designed specifically for the RecessionAlert research portal. 
+This prototype demonstrates the UI/UX, integration strategy, and value of the proposed "AI Chat" feature.
 
-![Placeholder: Hero Image of Widget](docs/screenshots/hero-shot.png)
+![RecessionAlert AI Chat Header](docs/screenshots/header.png)
 
 ## 🚀 Overview
 
@@ -54,11 +55,17 @@ To add the widget to any page, include the following snippet:
 
 ## 📸 Screenshots
 
-**[ Placeholder: Mobile View Screenshot ]**
-*(docs/screenshots/mobile-view.png)*
+### Mobile View
+![Mobile View](docs/screenshots/mobile-view.png)
 
-**[ Placeholder: Rich Media Chart Response ]**
-*(docs/screenshots/chart-response.png)*
+### Rich Media Chart Response
+![Chart Response](docs/screenshots/chart-response.png)
+
+### New Chat Welcome Screen
+![Welcome Screen](docs/screenshots/welcome-screen.png)
+
+### Onboarding Tour
+![Onboarding Tour](docs/screenshots/onboarding-tour.png)
 
 ## 📄 License
 Proprietary - Prepared for RecessionAlert.
