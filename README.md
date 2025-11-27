@@ -56,18 +56,20 @@ For production, the intigration would look similar to the following.
 
 ## 📸 Screenshots
 
-
+### Example view within RecessionAlert
 ![Example view within RecessionAlert](assets/EX1.png)
 
-
+### Instruction Page
 ![Instruction Page](assets/EX2.png)
 
-
+### Instruction Page2
 ![Instruction Page2](assets/EX3.png)
 
-
+### Instruction Page3
 ![Instruction Page3](assets/EX4.png)
+### Chart reference example
 ![Chart reference example](assets/EX5.png)
+### Article reference example
 ![Article reference example](assets/EX6.png)
 ## 📄 License
 Proprietary - Prepared for RecessionAlert.
