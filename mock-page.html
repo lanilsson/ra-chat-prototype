@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecessionAlert AI Chat Prototype</title>
+    <!-- 
+        This mock page simulates the host environment (recessionalert.com).
+        It includes a basic layout to test the widget's integration and styling.
+    -->
+    <style>
+        /* 
+           Host Site Basic Styles 
+           These simulate the "rudimentary" styles of the parent site 
+           that the widget should inherit (fonts, basic colors).
+        */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        /* Placeholder Header to simulate site context */
+        .site-header {
+            max-width: 980px;
+            margin: 0 auto 20px;
+            padding: 20px;
+            background: #fff;
+            border-bottom: 5px solid #cf2e2e; /* Theme Red */
+        }
+        
+        .site-header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* 
+           Widget Container 
+           The requirements specify a fixed container of 980x602.
+           In the real site, this might be a div in the content area.
+        */
+        #ra-chat-root {
+            width: 980px;
+            height: 602px;
+            margin: 0 auto;
+            background: #fff; /* Canvas background */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            /* The widget will render INSIDE this container */
+            position: relative; /* Key fix for absolute positioning of overlays */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Host Site Header -->
+    <header class="site-header">
+        <h1>RecessionAlert Research</h1>
+        <p>Thhis is a mock page to display the RecessionAlert AI Chat widget.</p>
+    </header>
+
+    <!-- 
+        Target Container for the Chat Widget.
+        The widget script will find this by ID and inject the chat interface.
+    -->
+    <div id="ra-chat-root"></div>
+
+    <!-- 
+        Widget Dependencies 
+        1. CSS for styling the widget components.
+        2. JS for the logic (rendering, fake messages, interactions).
+        3. Initialization script to boot the widget.
+    -->
+    <link rel="stylesheet" href="ra-chat-widget.css">
+    <script src="ra-chat-widget.js"></script>
+    <script>
+        // Initialize the widget targeting the specific container
+        RAChatWidget.init({ containerId: "ra-chat-root" });
+    </script>
+
+</body>
+</html>

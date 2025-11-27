@@ -1,0 +1,575 @@
+/**
+ * RecessionAlert AI Chat Widget Styles
+ * Based on Design_Spec_AI_Chat.md
+ * 
+ * INTEGRATION NOTES:
+ * 1. All styles are scoped under #ra-chat-root or prefixed with .ra- to prevent 
+ *    leaking into the host site.
+ * 2. Relies on standard box-sizing (border-box) reset within the container.
+ * 3. Fonts: Inherits from host but falls back to Arial/sans-serif. 
+ *    Ensure host site loads 'PT Serif' if exact match is required.
+ */
+
+/* --- Scope & Reset --- */
+#ra-chat-root {
+    /* 
+       LAYOUT & DIMENSIONS 
+       The widget is designed for a fixed height of 602px as per requirements.
+       Width fills the parent container (up to 980px in the mock).
+    */
+    font-family: "PT Sans", Arial, Helvetica, sans-serif; 
+    color: #333333;
+    line-height: 1.5;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 1px solid #e6e6e6;
+    display: flex; 
+    flex-direction: row;
+    overflow: hidden; 
+    box-sizing: border-box;
+    height: 602px; /* Static height */
+    width: 100%;   /* Fills parent width (980px in context) */
+    max-width: 980px; /* Ensure it doesn't exceed design */
+}
+
+/* Reset box-sizing for all internal elements */
+#ra-chat-root *, 
+#ra-chat-root *::before, 
+#ra-chat-root *::after {
+    box-sizing: border-box;
+}
+
+/* --- 4.2 Sidebar --- */
+.ra-chat-sidebar {
+    width: 250px;
+    background-color: #f5f5f5;
+    border-right: 1px solid #e6e6e6;
+    padding: 20px;
+    flex-shrink: 0; /* Fixed width */
+    display: flex;
+    flex-direction: column;
+    position: relative; /* For model selector placement */
+}
+
+/* Add Chat Button */
+.ra-chat-new-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #cf2e2e; /* Theme Red */
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.2s ease;
+    text-align: center;
+}
+
+.ra-chat-new-btn:hover {
+    background-color: #b02323; /* Dark Red */
+}
+
+/* History List */
+.ra-chat-history {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    flex-grow: 1; /* Push model selector to bottom */
+    margin-bottom: 10px;
+}
+
+.ra-chat-history-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #555555; /* Medium Gray */
+    transition: background-color 0.2s ease;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.15); /* Invisible border by default */
+}
+
+.ra-chat-history-item:hover {
+    background-color: #e6e6e6; /* Light Gray */
+    border-color: #dcdcdc; /* Slight border on hover */
+}
+
+.ra-chat-history-item.active {
+    background-color: #e6e6e6;
+    font-weight: bold;
+    color: #222222;
+    border-color: #dcdcdc; /* Slight border when active */
+}
+
+.ra-chat-history-item .ra-edit-icon {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: #999;
+}
+
+.ra-chat-history-item:hover .ra-edit-icon {
+    display: block;
+}
+
+/* Model Selector (Bottom of Sidebar) */
+.ra-model-selector {
+    margin-top: auto;
+    border-top: 1px solid #e6e6e6;
+    padding-top: 15px;
+}
+
+.ra-model-selector select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+}
+
+.ra-model-info {
+    font-size: 11px;
+    color: #888;
+    margin-top: 4px;
+    text-align: center;
+}
+
+/* --- 4.3 Chat Main Area --- */
+.ra-chat-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    min-width: 0; /* Flexbox overflow fix */
+}
+
+/* Header */
+.ra-chat-header {
+    padding: 10px 20px;
+    border-bottom: 1px solid #eeeeee;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333333;
+    font-family: "PT Serif", serif; /* Serif for headers per spec */
+    flex-shrink: 0;
+}
+
+/* Messages View */
+.ra-chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto; /* Enables scrolling */
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between messages */
+    scroll-behavior: smooth; /* Smooth scrolling for new messages */
+}
+
+/* --- 5.1 Messages --- */
+.ra-message-row {
+    display: flex;
+    align-items: flex-start;
+    max-width: 100%;
+}
+
+/* User variant uses row-reverse */
+.ra-message-row.user {
+    flex-direction: row-reverse;
+}
+
+/* Avatar */
+.ra-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.ra-message-row.bot .ra-avatar {
+    background-color: #cf2e2e; /* Theme Red */
+    margin-right: 10px;
+}
+
+.ra-message-row.user .ra-avatar {
+    background-color: #444444; /* Dark Gray */
+    margin-left: 10px;
+}
+
+/* Bubble */
+.ra-message-bubble {
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 75%;
+    position: relative;
+    word-wrap: break-word;
+}
+
+/* Bot Bubble Style */
+.ra-message-row.bot .ra-message-bubble {
+    background-color: #f5f5f5; /* Off-White */
+    color: #333333;
+    border-top-left-radius: 0;
+}
+
+/* User Bubble Style */
+.ra-message-row.user .ra-message-bubble {
+    background-color: #e6f7ff; /* User Blue */
+    border: 1px solid #bce0f5; /* User Blue Border */
+    color: #333333;
+    border-top-right-radius: 0;
+}
+
+/* --- 5.2 Rich Media Cards --- */
+.ra-chat-card {
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.ra-card-title {
+    font-family: "PT Serif", serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #222222;
+    margin: 0 0 5px 0;
+}
+
+.ra-card-meta {
+    font-size: 11px;
+    color: #888888;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.ra-card-body {
+    font-size: 13px;
+    color: #555555;
+}
+
+/* Chart Image in Card */
+.ra-card-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #e6e6e6;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+
+/* --- 5.3 Quick Prompt Chips --- */
+.ra-chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.ra-chip {
+    background: transparent;
+    border: 1px solid #cf2e2e;
+    color: #cf2e2e;
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ra-chip:hover {
+    background-color: #cf2e2e;
+    color: #ffffff;
+}
+
+/* --- 5.4 Input Area --- */
+.ra-input-area {
+    background-color: #fafafa;
+    border-top: 1px solid #e6e6e6;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.ra-input-wrapper {
+    display: flex;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 5px;
+    align-items: center;
+}
+
+/* Focus state handled via wrapper border */
+.ra-input-wrapper:focus-within {
+    border-color: #999; 
+}
+
+/* Extended Thinking Dropdown (Placeholder/Icon) */
+.ra-input-tools {
+    padding: 2px 8px;
+    border-right: 1px solid #eeeeee;
+    color: #333333; /* Default to black/dark gray */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    border-radius: 4px;
+    margin-right: 5px;
+    position: relative; /* Needed for tooltip positioning */
+}
+
+.ra-input-tools:hover {
+    background-color: #f0f0f0; /* Subtle hover background */
+}
+
+/* Active state for selection */
+.ra-input-tools.active {
+    color: #000000;
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+/* Tooltip Logic */
+.ra-input-tools .ra-tooltip {
+    visibility: hidden;
+    width: 140px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 6px 8px;
+    position: absolute;
+    z-index: 1000;
+    bottom: 125%; /* Position above the icon */
+    left: 50%;
+    margin-left: -70px; /* Center it */
+    opacity: 0;
+    transition: opacity 0.2s, bottom 0.2s;
+    font-size: 11px;
+    font-weight: normal;
+    pointer-events: none; /* Let clicks pass through */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Tooltip Arrow */
+.ra-input-tools .ra-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+/* Show on hover */
+.ra-input-tools:hover .ra-tooltip {
+    visibility: visible;
+    opacity: 1;
+    bottom: 135%; /* Slight float up animation */
+}
+
+/* Text Input */
+.ra-chat-input {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    padding: 8px 10px;
+    font-size: 14px;
+    color: #333333;
+    font-family: inherit;
+}
+
+.ra-chat-input:focus {
+    outline: none;
+}
+
+/* Send Button */
+.ra-send-btn {
+    background: none;
+    border: none;
+    color: #cf2e2e; /* Theme Red */
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 20px; /* Icon size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.ra-send-btn:hover {
+    color: #b02323;
+}
+
+.ra-send-btn:disabled {
+    color: #ccc;
+    cursor: default;
+}
+
+/* --- 6. Interaction States --- */
+/* Typing Indicator */
+.ra-typing-indicator {
+    display: flex;
+    gap: 4px;
+    padding: 5px 0;
+}
+
+.ra-typing-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #999999;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: ra-bounce 1.4s infinite ease-in-out both;
+}
+
+.ra-typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.ra-typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes ra-bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+
+/* --- Welcome Screen (New Chat) --- */
+.ra-welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    color: #333;
+}
+
+.ra-welcome-title {
+    font-family: "PT Serif", serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.ra-prompt-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.ra-prompt-card {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 13px;
+    color: #555;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.ra-prompt-card:hover {
+    border-color: #cf2e2e;
+    background-color: #fafafa;
+    color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* --- Onboarding Tour --- */
+#ra-tour-overlay {
+    position: absolute; /* Relative to widget container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* High z-index */
+    display: none;
+    backdrop-filter: blur(2px);
+}
+
+.ra-tour-box {
+    position: absolute;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 280px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1002;
+    color: #333;
+}
+
+.ra-tour-box h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #cf2e2e;
+}
+
+.ra-tour-box p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.ra-tour-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ra-tour-skip {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.ra-tour-next {
+    background-color: #cf2e2e;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.ra-tour-next:hover {
+    background-color: #b02323;
+}
+
+/* Highlight Class */
+.ra-tour-highlight {
+    position: relative;
+    z-index: 1001;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8); /* Outline effect */
+    background-color: white; /* Ensure opaque background */
+}
