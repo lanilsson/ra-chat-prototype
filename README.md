@@ -3,7 +3,7 @@
 A prototype of a drop-in, vanilla JavaScript AI chat interface designed specifically for the RecessionAlert research portal. 
 This prototype demonstrates the UI/UX, integration strategy, and value of the proposed "AI Chat" feature.
 
-![RecessionAlert AI Chat Header](ra-chat-prototype/assets/Header.png)
+![RecessionAlert AI Chat Header](assets/Header.png)
 
 ## 🚀 Overview
 
@@ -57,18 +57,18 @@ For production, the intigration would look similar to the following.
 ## 📸 Screenshots
 
 
-![Example view within RecessionAlert](ra-chat-prototype/assets/EX1.png)
+![Example view within RecessionAlert](assets/EX1.png)
 
 
-![Instruction Page](ra-chat-prototype/assets/EX2.png)
+![Instruction Page](assets/EX2.png)
 
 
-![Instruction Page2](ra-chat-prototype/assets/EX3.png)
+![Instruction Page2](assets/EX3.png)
 
 
-![Instruction Page3](ra-chat-prototype/assets/EX4.png)
-![Chart reference example](ra-chat-prototype/assets/EX5.png)
-![Article reference example](ra-chat-prototype/assets/EX6.png)
+![Instruction Page3](assets/EX4.png)
+![Chart reference example](assets/EX5.png)
+![Article reference example](assets/EX6.png)
 ## 📄 License
 Proprietary - Prepared for RecessionAlert.
 
