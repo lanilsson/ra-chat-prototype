@@ -25,7 +25,7 @@ ra-chat-prototype/
 └── docs/                # Documentation and screenshots
 ```
 
-## 🛠️ Installation & Usage
+## Prototype Usage
 
 ### 1. Local Testing
 Simply open `mock-page.html` in your web browser. It simulates the host site's header and layout to demonstrate the widget's integration.
