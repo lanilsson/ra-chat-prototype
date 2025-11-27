@@ -45,7 +45,12 @@ window.RAChatWidget = (function() {
                             {
                                 type: 'chart',
                                 title: 'SuperIndex History',
-                                src: 'ra-chat-prototype/assets/samplechart_900.png',
+                                // Dynamic path adjustment for demo purposes:
+                                // If we are deep in the WebCopyExample structure, we need to go up levels.
+                                // If we are in mock-page.html, we use standard relative path.
+                                src: window.location.pathname.includes('research-papers') 
+                                     ? '../../../../ra-chat-prototype/assets/samplechart_900.png' 
+                                     : 'assets/samplechart_900.png',
                                 body: 'You can also view the long term history of the Leading SuperIndex and its associated probability of recession & recession calls. The leading SuperIndex below is representative of future U.S economic growth and when it drops below the red recession dating line, it warns of recession in 3-4 months time. The Leading SuperIndex forms the basis of our “Short Leading” recession and economic indicator.'
                             }
                         ] 
