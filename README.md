@@ -3,7 +3,7 @@
 A prototype of a drop-in, vanilla JavaScript AI chat interface designed specifically for the RecessionAlert research portal. 
 This prototype demonstrates the UI/UX, integration strategy, and value of the proposed "AI Chat" feature.
 
-![RecessionAlert AI Chat Header](docs/screenshots/header.png)
+![RecessionAlert AI Chat Header](docs/screenshots/Header.png)
 
 ## 🚀 Overview
 
@@ -29,10 +29,11 @@ ra-chat-prototype/
 ## Prototype Usage
 
 ### 1. Local Testing
-Simply open `mock-page.html` in your web browser. It simulates the host site's header and layout to demonstrate the widget's integration.
+Download the repo and simply open `mock-page.html` in your web browser. It simulates the host site's header and layout to demonstrate the widget's integration.
 
 ### 2. Embedding (Production)
-To add the widget to any page, include the following snippet:
+This is an example of how this type of widget can be embedded into any page structure that provides a container.
+For production, the intigration would look similar to the following. 
 
 ```html
 <!-- 1. Container -->
@@ -55,18 +56,19 @@ To add the widget to any page, include the following snippet:
 
 ## 📸 Screenshots
 
-### Mobile View
-![Mobile View](docs/screenshots/mobile-view.png)
 
-### Rich Media Chart Response
-![Chart Response](docs/screenshots/chart-response.png)
+![Example view within RecessionAlert](docs/screenshots/EX1.png)
 
-### New Chat Welcome Screen
-![Welcome Screen](docs/screenshots/welcome-screen.png)
 
-### Onboarding Tour
-![Onboarding Tour](docs/screenshots/onboarding-tour.png)
+![Instruction Page](docs/screenshots/EX2.png)
 
+
+![Instruction Page2](docs/screenshots/EX3.png)
+
+
+![Instruction Page3](docs/screenshots/EX4.png)
+![Chart reference example](docs/screenshots/EX5.png)
+![Article reference example](docs/screenshots/EX6.png)
 ## 📄 License
 Proprietary - Prepared for RecessionAlert.
 

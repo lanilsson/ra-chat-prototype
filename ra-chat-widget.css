@@ -320,7 +320,7 @@
 }
 
 /* Extended Thinking Dropdown (Placeholder/Icon) */
-.ra-input-tools {
+.ra-input-tools { 
     padding: 2px 8px;
     border-right: 1px solid #eeeeee;
     color: #333333; /* Default to black/dark gray */
