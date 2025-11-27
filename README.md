@@ -15,7 +15,7 @@ The goal of this project is to provide RecessionAlert subscribers with an intera
 *   **Rich Media Support:** Renders charts and article summaries directly in the chat stream.
 *   **Responsive Design:** Fits a 980px fixed container but adapts internally to available space.
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 ra-chat-prototype/
