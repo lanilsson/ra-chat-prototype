@@ -5,7 +5,7 @@ This prototype demonstrates the UI/UX, integration strategy, and value of the pr
 
 ![RecessionAlert AI Chat Header](assets/Header.png)
 
-## 🚀 Overview
+## Overview
 
 The goal of this project is to provide RecessionAlert subscribers with an interactive way to query economic data. Instead of browsing static PDF reports, users can ask questions like *"Show me the SuperIndex history"* and receive instant, chart-backed answers.
 
@@ -49,12 +49,12 @@ For production, the intigration would look similar to the following.
 </script>
 ```
 
-## 🎨 Customization
+## Customization
 
 *   **Styling:** All styles are defined in `ra-chat-widget.css` and prefixed with `#ra-chat-root` or `.ra-` to ensure encapsulation.
 *   **Data/Responses:** The current prototype uses a static `state` object in `ra-chat-widget.js` to simulate AI responses. This will be replaced by a `fetch()` call to your vector database backend in the live version.
 
-## 📸 Screenshots
+## Screenshots
 
 ### Example view within RecessionAlert
 ![Example view within RecessionAlert](assets/EX1.png)
